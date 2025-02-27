@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menu Vertical com Conteúdo Dinâmico</title>
+    <style>
+        /* Reset básico */
+        body, ul, li {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+        }
+
+        /* Barra Superior Fixa */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: #0d3a02;
+            color: #fff;
+            padding: 10px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            z-index: 1000; /* Garantir que fique acima de outros elementos */
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra para destacar a barra */
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 24px;
+        }
+
+        /* Botão Hambúrguer */
+        .hamburger {
+            display: none;
+            font-size: 24px;
+            cursor: pointer;
+            padding: 5px;
+            background: #adadad;
+            color: #fff;
+            border-radius: 4px;
+        }
+
+        /* Container Principal */
+        .container {
+            display: flex;
+            flex: 1;
+            margin-top: 60px; /* Espaço para a barra superior */
+        }
+
+        .menu {
+            width: 250px;
+            background: #0d3a02;
+            color: #fff;
+            height: calc(100vh - 60px); /* Ajustar altura para compensar a barra superior */
+            overflow-y: auto;
+            transition: transform 0.3s ease;
+        }
+
+        .menu ul {
+            padding: 10px;
+        }
+
+        .menu li {
+            margin: 8px 0;
+        }
+
+        .menu .submenu li {
+            margin: 4px 0;
+        }
+
+        .menu a {
+            color: #fff;
+            text-decoration: none;
+            display: block;
+            padding: 8px;
+            transition: background 0.3s ease;
+            border-radius: 4px;
+        }
+
+        .menu a:hover {
+            background: #c9c6c6;
+        }
+
+        .menu a.active {
+            background:rgb(48, 146, 18);
+            font-weight: bold;
+        }
+
+        /* Submenus */
+        .submenu {
+            display: none;
+            padding-left: 25px;
+            margin-left: 10px;
+            border-left: 2px solid #c9c6c6;
+            background-color: rgb(44, 44, 44);
+        }
+
+        .submenu.active {
+            display: block;
+        }
+
+        /* Ícone de seta */
+        .arrow {
+            float: right;
+            transition: transform 0.3s ease;
+        }
+
+        .arrow.active {
+            transform: rotate(90deg);
+        }
+
+        /* Conteúdo Principal (Iframe) */
+        .content {
+            flex: 1;
+            background: #f4f4f4;
+        }
+
+        .content iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+            padding: auto;
+        }
+
+        /* Responsivo */
+        @media (max-width: 768px) {
+            .hamburger {
+                display: block;
+            }
+
+            .menu {
+                position: fixed;
+                top: 60px; /* Ajustar para compensar a barra superior */
+                left: -250px;
+                z-index: 1000;
+            }
+
+            .menu.active {
+                left: 0;
+            }
+
+            .content {
+                margin-left: 0;
+            }
+        }
+        
+    </style>
+</head>
+<body>
+    <!-- Barra Superior Fixa -->
+    <header>
+        <img id ="logo" src="img/logotipo.png" height="50" width="190">
+
+        <h1></h1>
+        <div class="hamburger" onclick="toggleMenu()">☰</div>
+    </header>
+
+    <!-- Container Principal -->
+    <div class="container">
+        <!-- Menu Vertical -->
+        <nav class="menu" id="menu">
+            <ul>
+                <li>
+                    <a href="#" onclick="toggleSubmenu(event)">CONSTANTES E VARIAVEIS <span class="arrow">▶</span></a>
+                    <ul class="submenu">
+                        <li><a href="#" onclick="loadPage('variaveis.html', this)">Conceitos</a></li>
+                        <li><a href="#" onclick="loadPage('exercicio_correspondencia.html', this)">Nível 1</a></li>
+                        <li><a href="#" onclick="loadPage('exercicios_parson.html', this)">Nível 2</a></li>
+                        <li><a href="#" onclick="loadPage('exercicios_multichoice.html', this)">Nível 3</a></li>
+                        <li><a href="#" onclick="loadPage('exercicios_completar.html', this)">Nível 4</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#" onclick="toggleSubmenu(event)">SELECÇÃO <span class="arrow">▶</span></a>
+                    <ul class="submenu">
+                        <li><a href="#" onclick="loadPage('selecao.html', this)">Nível 1</a></li>                                                                                                                                                            variaveis.html', this)">Conceitos</a></li>
+                        <li><a href="#" onclick="loadPage('exercicio_correspondencia.html', this)">Nível 1</a></li>
+                        <li><a href="#" onclick="loadPage('exercicios_parson.html', this)">Nível 2</a></li>
+                        <li><a href="#" onclick="loadPage('exercicios_multichoice.html', this)">Nível 3</a></li>
+                        <li><a href="#" onclick="loadPage('exercicios_completar.html', this)">Nível 4</a></li>
+                    </ul>
+                
+                </li>
+                <li>
+                    <a href="#" onclick="toggleSubmenu(event)">Repetição <span class="arrow">▶</span></a>
+                    <ul class="submenu">
+                        <li><a href="#" onclick="loadPage('repeticao.html', this)">Correspondencia</a></li>
+                        <li><a href="#" onclick="loadPage('exercicios_parson.html', this)">Parson</a></li>
+                        <li><a href="#" onclick="loadPage('exercicios_multichoice.html', this)">Multipla escolha</a></li>
+                        <li><a href="#" onclick="loadPage('exercicios_completar.html', this)">Completar</a></li>
+                        <li><a href="#" onclick="loadPage('exercicios_pseudocodigo.html', this)">Pseudo-código</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+
+        <!-- Conteúdo Principal (Iframe) -->
+        <div class="content">
+            <iframe id="iframeContent" src="variaveis.html"></iframe>
+        </div>
+    </div>
+
+    <script>
+        // Função para mostrar/esconder o menu
+        function toggleMenu() {
+            const menu = document.getElementById('menu');
+            menu.classList.toggle('active');
+        }
+
+        // Função para mostrar/esconder submenus
+        function toggleSubmenu(event) {
+            event.preventDefault();
+            const submenu = event.target.nextElementSibling;
+            const arrow = event.target.querySelector('.arrow');
+            submenu.classList.toggle('active');
+            arrow.classList.toggle('active');
+        }
+
+        // Função para carregar páginas no iframe e destacar o link ativo
+        function loadPage(page, linkElement) {
+            const iframe = document.getElementById('iframeContent');
+            iframe.src = page;
+ 
+            // Remover a classe 'active' de todos os links
+            const links = document.querySelectorAll('.menu a');
+            links.forEach(link => link.classList.remove('active'));
+
+            // Adicionar a classe 'active' ao link clicado
+            linkElement.classList.add('active');
+
+            // Fechar o menu em dispositivos móveis após clicar em um link
+            if (window.innerWidth <= 768) {
+                toggleMenu();
+            }
+        }
+    </script>
+</body>
+</html>
