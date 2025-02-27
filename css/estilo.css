@@ -507,7 +507,7 @@ h2#slogan{
 }
 
 .principal .artigo {
-	background-image: url(/img/fundo.png);
+	background-image: url(/codeview/img/fundo.png);
 	background-size: cover; /* Cobrirá todo o espaço disponível */
 	background-position: center; /* Centraliza a imagem */
 	width: 65%; /* Largura padrão */
