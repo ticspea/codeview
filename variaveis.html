@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" name="viewport" content="width=device-width,initial-scale=1"/>
+	<title>Code View </title>
+	<link rel="stylesheet" type="text/css" href="css/estilo.css">
+
+
+	
+	
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<script src="javascripts/script.js" defer></script>
+	<script src="javascripts/cenarios.js" defer></script>
+	 <script src="javascripts/cenarios2.js" defer></script> 
+	
+	
+	<style>
+		.container {
+			position: relative;
+			background-size: 100% 100%;
+			width: 70%;
+			height: 300px;
+	
+			float: 	left;
+			padding: 10px;
+			overflow: hidden; /* Garante que a imagem não apareça fora da área visível */
+		}
+	
+		
+		.regulo {
+			position: absolute;
+			width: 5vw; /* Ajuste o tamanho conforme necessário */
+			height: 26vh;/* 20px; /* Ajuste a altura conforme necessário */
+			transition: transform 0.5s linear; /* Transição suave para cada passo */
+			background-size: cover; /* Garante que a imagem cubra toda a área */
+			right: 5%;
+			bottom: 32%;
+		}
+		.image {
+			position: absolute;
+			width: 70px;/*5vw; /* Ajuste o tamanho conforme necessário */
+			height: 113px;/* 26vh;/* 20px; /* Ajuste a altura conforme necessário */
+			transition: transform 0.5s linear; /* Transição suave para cada passo */
+			background-size: cover; /* Garante que a imagem cubra toda a área */
+			right: 5%;
+			bottom: 32%;
+		}
+		#regulo10 {
+			position: absolute;
+			width: 70px;/*5vw; /* Ajuste o tamanho conforme necessário */
+			height: 113px;/* 26vh;/* 20px; /* Ajuste a altura conforme necessário */
+			transition: transform 0.5s linear; /* Transição suave para cada passo */
+			background-size: cover; /* Garante que a imagem cubra toda a área */
+			right: 5%;
+			bottom: 32%;
+		}
+		.image2 {
+			position: absolute;
+			width: 116px; /* Ajuste o tamanho conforme necessário */
+			height: 126px; /* Ajuste a altura conforme necessário */
+			transition: transform 0.5s linear; /* Transição suave para cada passo */
+			background-size: cover; /* Garante que a imagem cubra toda a área */
+			right: 5%;
+			bottom: 22%;
+		}
+/*.cofre {
+			position: relative;
+			width: 98px; /* Ajuste o tamanho conforme necessário */
+/*			height: 83px; /* Ajuste a altura conforme necessário */
+/*			background-size: cover; /* Garante que a imagem cubra toda a área */
+/*			left: 290px;
+			bottom: 110px;
+			z-index: 2;
+		}*/
+		.cofre {
+			position:absolute;
+			/*position: relative;*/
+			width: 98px; /* Ajuste o tamanho conforme necessário */
+			height: 83px; /* Ajuste a altura conforme necessário */
+			background-size: cover; /* Garante que a imagem cubra toda a área */
+			left: 3%;
+			bottom: 22%;
+			z-index: 2;
+		}
+		
+		.moeda {
+			position: absolute;
+			width: 86px; /* Ajuste o tamanho conforme necessário */
+			height: 86px; /* Ajuste a altura conforme necessário */
+			background-size: cover; /* Garante que a imagem cubra toda a área */
+			left: 277px;
+			bottom: 72px;
+		}
+		.moeda3 {
+			position: absolute;
+			width: 86px; /* Ajuste o tamanho conforme necessário */
+			height: 86px; /* Ajuste a altura conforme necessário */
+			background-size: cover; /* Garante que a imagem cubra toda a área */
+			left: 37%;
+			bottom: 26%;
+		}
+
+		#cofre03 {
+			position: absolute;
+			width: 140px; /* Ajuste o tamanho conforme necessário */
+			height: 128px; /* Ajuste a altura conforme necessário */
+			background-size: cover; /* Garante que a imagem cubra toda a área */
+			left: -2%;
+			bottom: 13%;
+			z-index: 1;
+		}
+		
+		.hidden {
+			display: none; /* Oculta o elemento quando necessário */
+		}
+	
+		.moving {
+			transition: transform 0.5s linear; /* Transição suave para a movimentação */
+		}
+	
+		#manWalking {
+			transform: translateX(0px); /* Posição inicial */
+			
+		}
+
+		
+	</style>
+</head>
+<body>
+	
+
+	<div class="principal">
+		
+
+		  	<!-- Progress bar -->
+			  <div class="progressbar">
+				<div class="progress" id="progress"></div>
+				
+				<div
+				  class="progress-step progress-step-active"
+				  data-title="Constante"
+				></div>
+				<div class="progress-step" data-title="Declaração de variavel"></div>
+				<div class="progress-step" data-title="Atribuição"></div>
+				<div class="progress-step" data-title="Visualização"></div>
+				<div class="progress-step" data-title="Atualização"> 	</div>
+				
+				
+			  </div>
+
+			   <!-- Steps -->
+			   <div class="form-step form-step-active">
+				
+				<div  class="btns-group">
+				  <a id="art1" href="#" class="btn btn-next">Próximo</a>
+				</div>
+
+
+				<div id="menu">
+					<p></p> Memória <p> <img id ="placa0" class="placar" src="img/placainicial.png" alt="Image" height="140" width="225">
+					<!-- <ul>
+						
+					</ul>	-->
+				</div>
+					   <article id="artigo1" class="artigo"> <pre id="c1" class="pcod" style="display: none;">
+
+ 	Inicio
+     		<b class="formatacaoc">Constante</b> nomedaVila  = "Quissico"
+     		<b class="formatacaoc">Constante</b> anofundacao =   1930
+	Fim
+					   </pre> 
+						 <!--<p id="tc">Conceito de constante</p><!-->
+					   <p id="tx2" style="display: none;"> A vila de Quissico foi fundada no ano de 1930 e, desde então, mantém o mesmo nome e a respectiva data da sua criação. Mesmo com o passar do tempo e as mudanças na vila, esses aspectos permanecem inalterados, reflectindo a identidade e a história do lugar. Também em programação, uma constante é um valor que não muda durante a execução do programa, assim como o nome e o ano de fundação da vila de Quissico que permanecem os mesmos ao longo do tempo. Clique no botão do código para ver como esses conceitos são representados na programação.
+					</p>  
+					 
+				   <h5 id="t1" > <!-- <p id="constante">Conceito de constante </p> --> <!-- A vila de Quissico foi fundada no ano de 1930 e, desde então, mantém o mesmo nome. A data da sua criação também não muda. Mesmo com o passar do tempo e as mudanças na vila, esses aspectos permanecem inalterados, refletindo a identidade e a história do lugar.
+						<p> Em programação, uma constante é um valor que não muda durante a execução do programa, assim como o nome e o ano de fundação da vila de Quissico que permanecem os mesmos ao longo do tempo.-->
+						</h5> 
+
+						
+					
+					</article>	
+					   <footer id="rodape">
+			<div> 
+				<img id ="play1" src="img/play.png" alt="play1" style="cursor: pointer;"> <h5 id="pt1" >play</h5>
+			
+			<img id ="replay1" src="img/replay.png" alt="replay" style="cursor: pointer;"> <h5 id="rt1" >Replay</h5>
+			<img id ="text1" src="img/text.png" alt="text1" style="cursor: pointer;"> <h5 id="tt1" >Text</h5>
+			<img id ="sound1" src="img/sound.png" alt="sound1" style="cursor: pointer;"> <h5 id="st1" >Sound</h5>
+			<img id ="code1" src="img/code.png" alt="code1" style="cursor: pointer;"> <h5 id="ps1" >Código</h5>
+		</div> 
+		</footer>
+			  </div>
+
+			  <div class="form-step">
+				
+				<div class="btns-group">
+					<a href="#" class="btn btn-prev">Anterior</a>
+					<a href="#" class="btn btn-next">Próximo</a>
+				  </div>
+			
+			<nav id="menu">
+				<p></p> Memória <p> <img id ="placa02"  class="placar" src="img/placainicial.png" alt="Image" height="140" width="225">
+					<img id ="placa002" class="placar" src="img/poupanca.png" alt="Image" height="140" width="225" style="display: none;">
+
+				
+			</nav>
+			       <article id="artigo2" class="artigo">
+
+
+
+					
+					<pre id="c2" class="pcod" style="display: none;">
+
+		    					
+	Inicio
+	    <b class="formatacaoc">var</b> poupanca
+	Fim
+												  </pre> 
+			
+									<div id="message" class="message"></div>
+									
+						<div id="manIdle" class="image" style="background-image: url('/ensino001/img/velho-sem-moeda.png');"></div>
+					<div id="manWalking" class="image2 hidden" style="background-image: url('/ensino001/img/cofre-mao-velho.png');"></div>
+					<div id="cofre" class="cofre hidden" style="background-image: url('/ensino001/img/cofre-sem-velho.png');"></div>
+
+
+
+
+
+				   </article>
+				   <footer id="rodape">
+			<img id ="play2" src="img/play.png"alt="play2" style="cursor: pointer;"> <h5 id="pt2" >play</h5>
+			<img id ="replay2" src="img/replay.png" alt="replay2" style="cursor: pointer;"> <h5 id="rt2" >Replay</h5>
+			<img id ="text2" src="img/text.png"alt="text2" style="cursor: pointer;"> <h5 id="tt2" >Text</h5>
+			<img id ="sound2" src="img/sound.png" alt="sound2" style="cursor: pointer;"> <h5 id="st2" >Sound</h5>
+			<img id ="code2" src="img/code.png" alt="code2" style="cursor: pointer;"> <h5 id="ps2" >Código</h5>
+			
+		</footer>
+			  </div>
+			  <div class="form-step">
+				
+				<div class="btns-group">
+					<a href="#" class="btn btn-prev">Anterior</a>
+					<a href="#" class="btn btn-next">Próximo</a>
+				  </div>
+				  
+				<nav id="menu">
+					<p></p> Memória <p>	</poupanca><img id ="placa03" class="placar" src="img/poupanca.png" alt="Image" height="140" width="225">
+							<img id ="placa003" class="placar" src="img/poupanca10.png" alt="Image" height="140" width="225" style="display: none;">
+						
+						 
+				</nav>
+					   <article id="artigo3" class="artigo"> 
+						<div id="message3" class="message"> </div>
+
+						<div id="manIdle3" class="image" style="background-image: url('/menu2/img/velho-sem-moeda.png');"></div>
+						<div id="cofre3" class="cofre" style="background-image: url('/menu2/img/cofre-sem-velho.png');"></div>
+						<div id="cofre03" class="cofre hidden" style="background-image: url('/menu/img/cofre10.png');"></div>
+
+						<div id="moeda3" class="moeda" style="background-image: url('/menu2/img/moeda10.png');"></div>
+						<!-- <div id="manIdle3" class="image" style="background-image: url('/menu/img/velho-sem-moeda.png');"></div>
+						<div id="cofre3" class="cofre" style="background-image: url('/menu/img/cofre-sem-velho.png');"></div>
+						<div id="cofre03" class="cofre hidden" style="background-image: url('/menu2/img/cofre10.png');"></div>
+
+						<div id="moeda3 " class="moeda" style="background-image: url('/menu2/img/moeda10.png');"></div>
+					   -<div id="regulo10" class="image" style="background-image: url('/menu/img/Regulo10.png');"></div>-->
+													
+						
+					   </article>
+					   <footer id="rodape">
+						<div>
+							
+			<img id ="play3" src="img/play.png" alt="play3" style="cursor: pointer;">  <h5 id="pt3" >play</h5>
+			<img id ="replay3" src="img/replay.png" alt="replay3" style="cursor: pointer;"> <h5 id="rt3" >Replay</h5>
+			<img id ="text3" src="img/text.png" alt="text3" style="cursor: pointer;"> <h5 id="tt3" >Text</h5>
+			<img id ="sound3" src="img/sound.png" alt="sound3" style="cursor: pointer;"> <h5 id="st3" >Sound</h5>
+			<img id ="code3" src="img/code.png" alt="code3" style="cursor: pointer;"> <h5 id="ps3"> Código</h5>
+		</div> 
+		</footer>
+
+			  </div>
+
+			  <div class="form-step">
+				
+				<div class="btns-group">
+				  <a href="#" class="btn btn-prev">Anterior</a>
+				  <a href="#" class="btn btn-next">Próximo</a>
+				</div>
+
+				<nav id="menu">
+
+					<p></p> Memória <p>	<img id ="placa04" class="placar" src="img/poupanca10.png" alt="Image" height="140" width="225">
+
+					
+				</nav>
+					   <article id="artigo4" class="artigo">
+
+							<div id="manIdle4" class="image" style="background-image: url('/ensino01/img/velho-sem-moeda.png');"></div>
+							<div id="cofre4" class="cofre" style="background-image: url('/ensino01/img/cofre-sem-velho.png');"></div>
+							<!-- <div id="cofre04" class="cofre hidden" style="background-image: url('/menu2/img/cofrec10.png');"></div>-->
+
+                            <!--<div id="moeda4" class="moeda" style="background-image: url('/ensino01/img/moeda.png');"></div>-->
+							<p id="msg4" style="display: none;"> </p>
+							<!--O valor da variável poupanca já foi atribuido no cenário anterior. Neste cenário, apenas é exibido o seu respectivo valor. Para isso é usada a palavra reservada "escreva" para exibir o valor. Clique na imagem do código para exibir o respectivo código.-->
+
+
+							<h4 id="texto4" style="display: none;"> 10</h4>
+						</article>
+
+					   <footer id="rodape">
+			<img id ="play4" title="play" src="img/play.png"alt="play4" style="cursor: pointer;"> <h5 id="pt4" >play</h5>
+			<img id ="replay4" src="img/replay.png" alt="replay4" style="cursor: pointer;"> <h5 id="rt4" >Replay</h5>
+			<img id ="text4" src="img/text.png" alt="text4" style="cursor: pointer;"> <h5 id="tt4" >Text</h5>
+			<img id ="sound4" src="img/sound.png" alt="sound4" style="cursor: pointer;"> <h5 id="st4" >Sound</h5>
+			<img id ="code4" src="img/code.png" alt="code4" style="cursor: pointer;"> <h5 id="ps4" >Código</h5>
+			
+		</footer>
+
+			  </div>
+
+			  <div class="form-step">
+				
+				<div class="btns-group">
+				  <a href="#artigo7" class="btn btn-prev">Anterior</a>
+				  <a href="exercicio_correspondencia.html" class="btn btn-next">Próximo</a>
+				</div>
+
+				<nav id="menu">
+					<p></p> Memória <p> <!-- <p id="com5"></p>-->  <img id ="placa05" class="placar" src="img/poupanca10.png" alt="Image" height="140" width="225">
+						<img id ="placa005" class="placar" src="img/poupanca30.png" alt="Image" height="140" width="225" style="display: none;">
+							
+				</nav>
+					   <article id="artigo5" class="artigo">
+
+						<div id="message5" class="message"> </div>
+
+						<div id="manIdle5" class="image" style="background-image: url('/menu/img/velho-sem-moeda.png');"></div>
+						<div id="cofre5" class="cofre" style="background-image: url('/menu/img/cofre-sem-velho.png');"></div>
+						<div id="moeda5" class="moeda" style="background-image: url('/menu/img/moeda20.png');"></div>
+						
+					   </article>
+					   <footer id="rodape">
+			<img id ="play5" src="img/play.png" alt="play5" style="cursor: pointer;"> <h5 id="pt5" >play</h5>
+			<img id ="replay5" src="img/replay.png" alt="replay5" style="cursor: pointer;"> <h5 id="rt5" >Replay</h5>
+			<img id ="text5" src="img/text.png" alt="text5" style="cursor: pointer;"> <h5 id="tt5" >Text</h5>
+			<img id ="sound5" src="img/sound.png" alt="sound5" style="cursor: pointer;"> <h5 id="st5" >Sound</h5>
+			<img id ="code5" src="img/code.png" alt="code5" style="cursor: pointer;"> <h5 id="ps5" >Código</h5>
+			
+		</footer>
+
+			  </div>
+
+
+
+			  <div class="form-step">
+				
+				<div class="btns-group">
+				  <a href="#" class="btn btn-prev">Anterior</a>
+				  <a href="#" class="btn btn-next">Próximo</a>
+				</div>
+
+				<nav id="menu">
+
+					<p></p> Memória <p>	<img id ="placa04" class="placar" src="img/poupanca10.png" alt="Image" height="140" width="225">
+
+					
+				</nav>
+					   <article id="artigo4" class="artigo">
+
+							<div id="manIdle4" class="image" style="background-image: url('/ensino01/img/velho-sem-moeda.png');"></div>
+							<div id="cofre4" class="cofre" style="background-image: url('/ensino01/img/cofre-sem-velho.png');"></div>
+							<!-- <div id="cofre04" class="cofre hidden" style="background-image: url('/menu2/img/cofrec10.png');"></div>-->
+
+                            <!--<div id="moeda4" class="moeda" style="background-image: url('/ensino01/img/moeda.png');"></div>-->
+							<p id="msg6" style="display: none;"> </p>
+							<!--O valor da variável poupanca já foi atribuido no cenário anterior. Neste cenário, apenas é exibido o seu respectivo valor. Para isso é usada a palavra reservada "escreva" para exibir o valor. Clique na imagem do código para exibir o respectivo código.-->
+
+
+							<h4 id="texto4" style="display: none;"> 10</h4>
+						</article>
+
+					   <footer id="rodape">
+			<img id ="play6" title="play" src="img/play.png"alt="play4" style="cursor: pointer;"> <h5 id="pt4" >play</h5>
+			<img id ="replay6" src="img/replay.png" alt="replay4" style="cursor: pointer;"> <h5 id="rt4" >Replay</h5>
+			<img id ="text6" src="img/text.png" alt="text4" style="cursor: pointer;"> <h5 id="tt4" >Text</h5>
+			<img id ="sound6" src="img/sound.png" alt="sound4" style="cursor: pointer;"> <h5 id="st4" >Sound</h5>
+			<img id ="code6" src="img/code.png" alt="code4" style="cursor: pointer;"> <h5 id="ps4" >Código</h5>
+			
+		</footer>
+
+			  </div>
+
+
+
+			  
+
+
+		
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+			  
+
+	<script>
+		function toggleMenu(menuId) {
+		var menu = document.getElementById(menuId);
+		if (menu.style.display === "block") {
+		menu.style.display = "none";
+		} else {
+		menu.style.display = "block";
+		}
+		}
+		</script>
+
+</body>
+</html>
