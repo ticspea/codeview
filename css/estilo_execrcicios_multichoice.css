@@ -1,0 +1,146 @@
+@charset "UTF-8";
+
+.pontos{
+	display:inline-table;
+	background-color: #4b3306;
+	border-radius: 25%;
+	color: #ddda0e;
+	padding: 10px;
+
+	
+}
+
+
+#descricaoc{
+	/*display: block;
+	border-radius: 25px;
+	margin : 2px auto 2px auto;
+	padding : 10px;
+	position:relative;
+	right: 10%;
+	top: 49%;
+	background-color: rgb(236, 235, 234);*/
+	border-radius: 25px;
+	background-color: rgb(236, 236, 234);
+	margin : 2px auto 2px auto;
+	padding : 10px;
+
+}
+/*
+#statusc{
+	position:absolute;
+	display: block;
+	border-radius: 25px;
+	background-color:  rgb(195, 238, 203);
+	margin : 2px auto 2px auto;
+	padding : 10px;
+	top: 10px;
+
+}*/
+/*.duracao{
+	position: relative;
+	right: 20%;
+	color:rgb(253, 27, 39);
+	/*top:12%;*/
+	/*font-size: 16px;
+	/*background-color: rgb(15, 139, 69);*/
+	/*border-radius: 25px;
+    padding: 10px;
+	font-weight: bold;
+	
+}*/
+
+.principal #artigo3  {
+	background-size: 100% 100%;
+	/*display: block;
+	
+	/*background-color: white;*/
+	width: 70%;
+	height: auto;
+	
+	/*width: 400px;*/
+	float: 	left;
+	padding: 10px;	
+	background-color: #f8f5f5;
+	border-radius: 25px;
+	margin : 10px auto 10px auto;
+	padding : 20px;
+	margin-left: 20px;
+	/*border: 8px solid white;
+	box-shadow: 1px 1px 5px black;*/
+	
+}
+
+.principal #artigo4  {
+	background-size: 100% 100%;
+	/*display: block;
+	
+	/*background-color: white;*/
+	width: 70%;
+	height: auto;
+	
+	/*width: 400px;*/
+	float: 	left;
+	padding: 10px;	
+	background-color:  rgb(228, 231, 228);
+	border-radius: 25px;
+	margin : 4px auto 10px auto;
+	padding : 20px;
+	margin-left: 20px;
+	/*border: 8px solid white;
+	box-shadow: 1px 1px 5px black;*/
+}
+
+#art1{
+	float:right;
+}
+
+
+.principal #artigo5  {
+	background-size: 100% 100%;
+	/*display: block;
+	
+	/*background-color: white;*/
+	width: 70%;
+	height: auto;
+	left: 50%;
+	/*width: 400px;*/
+	float: 	left;
+	padding: 10px;	
+	background-color:  rgb(195, 238, 203);
+	border-radius: 25px;
+	margin : 10px auto 10px auto;
+	padding : 20px;
+	margin-left: 20px;
+	/*border: 8px solid white;
+	box-shadow: 1px 1px 5px black;*/
+	
+
+}
+
+
+#submeter{
+	position: relative;
+	float: right;
+}
+.controlo{
+	/*left: 80%;*/
+	position:relative;
+	background-color: red;
+	display: inline-block;
+
+}
+
+.question{
+	display:inline-flexbox;
+}
+
+
+
+
+p{
+	text-align: left;
+	margin: 0px;
+	font-size: 1em;
+}
+
