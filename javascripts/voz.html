@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Texto para Voz</title>
+</head>
+<body>
+<h1>Texto para Voz</h1>
+<textarea id="text" rows="10" cols="50" placeholder="Digite o texto aqui..."></textarea><br>
+<button onclick="speak()">Ler Texto</button>
+
+<script>
+function speak() {
+const text = document.getElementById('text').value;
+const speech = new SpeechSynthesisUtterance(text);
+speech.lang = 'pt-PT'; // Define o idioma para português
+window.speechSynthesis.speak(speech);
+}
+</script>
+</body>
+</html>
