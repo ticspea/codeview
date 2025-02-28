@@ -201,7 +201,7 @@ function typeWriterEffect(element, text, speed, callback) {
 
 // Função para iniciar a animação após a mensagem inicial
 function startAnimation3() {
-    manIdle3.style.backgroundImage = "url('/menu/img/velho-sem-moeda.png')";
+    manIdle3.style.backgroundImage = "url('/codeview/img/velho-sem-moeda.png')";
     manIdle3.style.transform = 'translateX(0px)';
 
     position3 = 0;
@@ -221,7 +221,7 @@ function startAnimation3() {
             clearInterval(interval3);
             setTimeout(() => {
                 moeda3.classList.add('hidden');
-                manIdle3.style.backgroundImage = "url('/menu2/img/Regulo10.png')";
+                manIdle3.style.backgroundImage = "url('/codeview/img/Regulo10.png')";
                 manIdle3.style.height = "18vh";
                 paused3 = false;
                 continueAnimation3(i3);
@@ -248,14 +248,14 @@ function continueAnimation3(currentStep3) {
         currentStep3++;
 
         if (currentStep3 == 54) {
-            manIdle3.style.backgroundImage = "url('/ensino/imagens/velho-sem-moeda.png')";
+            manIdle3.style.backgroundImage = "url('/codeview/imagens/velho-sem-moeda.png')";
             placa03.style.display = 'none';
             placa003.style.display = 'block';
 
             setTimeout(() => {
-                cofre3.style.backgroundImage = "url('/menu2/img/cofre10.png')";
+                cofre3.style.backgroundImage = "url('/codeview/img/cofre10.png')";
                 setTimeout(() => {
-                    cofre3.style.backgroundImage = "url('/menu2/img/cofre-sem-velho.png')";
+                    cofre3.style.backgroundImage = "url('/codeview/img/cofre-sem-velho.png')";
                 }, 1000);
             }, 1000);
         }
@@ -368,7 +368,7 @@ document.getElementById('play4').addEventListener('click', function () {
 
 
         } else {
-            cofre4.style.backgroundImage = "url('/menu2/img/cofrec10.png')";
+            cofre4.style.backgroundImage = "url('/codeview/img/cofrec10.png')";
 
             // Após a exibição da mensagem, desbloqueia os botões
             playButton.disabled = false;
@@ -574,7 +574,7 @@ function typeWriterEffect5(element, text, speed, callback) {
 
 // Função para iniciar a animação após a mensagem inicial
 function startAnimation5() {
-    manIdle5.style.backgroundImage = "url('/menu/img/velho-sem-moeda.png')";
+    manIdle5.style.backgroundImage = "url('/codeview/img/velho-sem-moeda.png')";
     manIdle5.style.transform = 'translateX(0px)';
 
     position5 = 0;
@@ -594,7 +594,7 @@ function startAnimation5() {
             clearInterval(interval5);
             setTimeout(() => {
                 moeda5.classList.add('hidden');
-                manIdle5.style.backgroundImage = "url('/menu/img/Regulo20.png')";
+                manIdle5.style.backgroundImage = "url('/codeview/img/Regulo20.png')";
                 manIdle5.style.height = "18vh";
                 paused5 = false;
                 continueAnimation5(i5);
@@ -621,14 +621,14 @@ function continueAnimation5(currentStep5) {
         currentStep5++;
 
         if (currentStep5 == 54) {
-            manIdle5.style.backgroundImage = "url('/ensino/imagens/velho-sem-moeda.png')";
+            manIdle5.style.backgroundImage = "url('/codeview/imagens/velho-sem-moeda.png')";
             placa05.style.display = 'none';
             placa005.style.display = 'block';
 
             setTimeout(() => {
-                cofre5.style.backgroundImage = "url('/menu/img/cofre20.png')";
+                cofre5.style.backgroundImage = "url('/codeview/img/cofre20.png')";
                 setTimeout(() => {
-                    cofre5.style.backgroundImage = "url('/menu/img/cofre-sem-velho.png')";
+                    cofre5.style.backgroundImage = "url('/codeview/img/cofre-sem-velho.png')";
                 }, 1000);
             }, 1000);
         }
