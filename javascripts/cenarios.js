@@ -740,7 +740,7 @@ function startAnimation5() {
     // Se a instrução estiver correta, prossegue com a animação
     playButton5.disabled = true;  // Desabilita o botão enquanto a animação está em execução
 
-    manIdle5.style.backgroundImage = "url('/menu/img/velho-sem-moeda.png')";  // Define a imagem inicial
+    manIdle5.style.backgroundImage = "url('/codeview/img/velho-sem-moeda.png')";  // Define a imagem inicial
     manIdle5.style.transform = 'translateX(0px)';  // Reseta a posição inicial
     
     position5 = 0;  // Reinicia a posição do personagem
