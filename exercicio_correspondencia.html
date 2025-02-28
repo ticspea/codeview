@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" name="viewport" content="width=device-width,initial-scale=1"/>
+	<title>Code View </title>
+	<link rel="stylesheet" type="text/css" href="css/estilo.css">
+
+
+	
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<script src="javascripts/script.js" defer></script>
+	<script src="javascripts/cenarios_correspondencia.js" defer></script>
+
+
+
+
+	<style>
+ body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+        .container {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+        .category, .category02 {
+            border: 2px solid #333;
+            padding: 10px;
+            width: 200px;
+            min-height: 100px;
+            background-color: #d3d3d3; /* Cinza quando vazio */
+            transition: background-color 0.3s;
+			font-weight: bold;
+        }
+
+		
+        .options, .options02 {
+            border: 2px solid #333;
+            padding: 10px;
+            width: 200px;
+            min-height: 100px;
+            background-color: #d3d3d3; /* Cinza quando vazio */
+            transition: background-color 0.3s;
+        }
+
+
+        .option,  .option02  {
+            background-color: #add8e6;
+            padding: 8px;
+            margin: 5px;
+            cursor: grab;
+			margin: 10px;
+        }
+        .correct {
+            background-color: lightgreen !important;
+        }
+        .wrong {
+            background-color: lightcoral !important;
+        }
+
+		
+
+/* -------------------------------------------------- exercicios ------------------------------------------------*/
+
+/*---------------------------------------------------- fim -------------------------------------------------------*/
+
+
+		
+	</style>
+</head>
+<body>
+	
+	<div class="principal">
+		
+
+<!--<p id="ti">Episódios</p><!-->
+
+		  	<!-- Progress bar -->
+			 
+			  <div class="progressbar">
+				<div class="progress" id="progress"></div>
+				
+				<div
+				  class="progress-step progress-step-active"
+				  data-title="Exercicio1"
+				></div>
+				<div class="progress-step" data-title="Exercicio2"></div>
+				
+				
+				
+				
+			  </div>
+			   
+			   <!-- Steps -->
+			   <div class="form-step form-step-active">
+				<div class="status1">
+							Pontuação:<div id="p03" class="pontos">10</div>
+							Tentativas:<div id="t03" class="pontos">4</div>
+								Pontuação total:<div id="ttl" class="pontos">11</div>
+						</div>
+				<div class="btns-group"="">
+				   <a href="variaveis.html#artigo5" class="btn btn-prev">Anterior</a>
+				   <a href="#" class="btn btn-next">Próximo</a>
+				</div>
+						<h3 class="minidescricao"> Arraste as opções para as categorias corretas</h3>
+						
+					
+				
+				
+				
+						<div class="container">
+							<div class="options" id="options1">
+								<div class="option" draggable="true" id="op1">É a operação que armazena um valor específico numa variável ou constante usando o operador de igualdade = ou atribuição usando teclado  </div>
+								<div class="option" draggable="true" id="op2">É a exibição de informações para o utilizador</div>
+								<div class="option" draggable="true" id="op3">É a execução de operações matemáticas sobre valores. Isso inclui operações aritméticas e lógicas </div>
+								<div class="option" draggable="true" id="op5">É a reserva de novo espaço na memória do computador para armazenar dados. Ao criar uma variável, você precisa dar um nome</div>
+								<div class="option" draggable="true" id="op6">É a alteração, através de operadores, do valor de uma variavel</div>
+							</div>
+					
+							<div class="category" id="cat1" ondragover="allowDrop(event)" ondrop="drop(event, 'atrib')">Atribuição de valor</div>
+							<div class="category" id="cat2" ondragover="allowDrop(event)" ondrop="drop(event, 'visu')">Visualização</div>
+							<div class="category" id="cat3" ondragover="allowDrop(event)" ondrop="drop(event, 'calc')">Cálculo</div>
+							<div class="category" id="cat5" ondragover="allowDrop(event)" ondrop="drop(event, 'cri')">Criação de variável</div>
+							<div class="category" id="cat6" ondragover="allowDrop(event)" ondrop="drop(event, 'acum')">Atualização de valor</div>
+						</div>
+						
+						<br>
+						<button onclick="verificarRespostas()">Verificar Respostas</button>
+						<p id="resultado"></p>
+					
+					   <footer id="rodape">
+			 
+		</footer>
+			  </div>
+
+			  <div class="form-step">
+			  <div id="status1" class="status1">
+							Pontuação:<div id="p03" class="pontos">10</div>
+							Tentativas:<div id="t03" class="pontos">4</div>
+								Pontuação total:<div id="ttl" class="pontos">11</div>
+						</div>
+				
+				<div class="btns-group">
+					<a href="#" class="btn btn-prev">Anterior</a>
+					<a href="exercicios_parson.html" class="btn btn-next">Próximo</a>
+				  </div>
+			
+			
+			       
+						<h3 class="minidescricao">Arraste as opções para as categorias corretas</h3>
+							
+				
+				
+						<div class="container">
+							<div class="options" id="options2">
+								<div class="option" draggable="true" id="op7">idade = 25</div>
+								<div class="option" draggable="true" id="op8">escreva(idade)</div>
+								<div class="option" draggable="true" id="op9">soma = 10 + 5</div>
+								<div class="option" draggable="true" id="op11">var idade</div>
+								<div class="option" draggable="true" id="op12">soma = soma + i</div>
+							</div>
+					
+							<div class="category" id="cat7" ondragover="allowDrop(event)" ondrop="drop(event, 'atrib')">Atribuição de valor</div>
+							<div class="category" id="cat8" ondragover="allowDrop(event)" ondrop="drop(event, 'visu')">Visualização</div>
+							<div class="category" id="cat9" ondragover="allowDrop(event)" ondrop="drop(event, 'calc')">Cálculo</div>
+							<div class="category" id="cat11" ondragover="allowDrop(event)" ondrop="drop(event, 'cri')">Criação de variável</div>
+							<div class="category" id="cat12" ondragover="allowDrop(event)" ondrop="drop(event, 'acum')">Atualização de valor</div>
+						</div>
+					
+						<br>
+						<button onclick="verificarRespostas()">Verificar Respostas</button>
+						<p id="resultado"></p>
+    					
+					
+					   <footer id="rodape">
+			 
+		</footer>
+			  </div>
+
+
+
+			  <div class="form-step">
+				
+				<div class="btns-group">
+					<a href="#" class="btn btn-prev">Anterior1</a>
+					<a href="#" class="btn btn-next">Próximo1</a>
+				  </div>
+
+	
+    
+    
+    </div>
+    </div>
+    
+    
+    				
+					   </article>
+					   <footer id="rodape">
+						<div>
+							
+		</div> 
+		</footer>
+
+			  </div>
+
+			  <div class="form-step">
+				
+				<div class="btns-group">
+				  <a href="#" class="btn btn-prev">Anterior</a>
+				  <a href="#" class="btn btn-next">Próximo</a>
+				</div>
+
+				<nav id="menu">
+					<ul>
+						<img id ="placa04" class="placa" src="img/poupanca10.png" alt="Image" height="140" width="225">
+
+					</ul>	
+				</nav>
+					   <article id="artigo">
+
+							<div id="manIdle4" class="image" style="background-image: url('/ensino01/img/velho-sem-moeda.png');"></div>
+							<div id="cofre4" class="cofre" style="background-image: url('/ensino01/img/cofre-sem-velho.png');"></div>
+                            <!--<div id="moeda4" class="moeda" style="background-image: url('/ensino01/img/moeda.png');"></div>-->
+							<p id="msg4" style="display: none;"> O valor da variável poupanca já foi atribuido no cenário anterior. Neste cenário, apenas é exibido o seu respectivo valor</p>
+
+							<h4 id="texto4" style="display: none;"> 10</h4>
+						</article>
+
+					   <footer id="rodape">
+			<img id ="play4" title="play" src="img/play.png"alt="play4" style="cursor: pointer;"> <h5 id="pt4" >play</h5>
+			<img id ="replay4" src="img/replay.png" alt="replay4" style="cursor: pointer;"> <h5 id="rt4" >Replay</h5>
+			<img id ="text4" src="img/text.png" alt="text4" style="cursor: pointer;"> <h5 id="tt4" >Text</h5>
+			<img id ="sound4" src="img/sound.png" alt="sound4" style="cursor: pointer;"> <h5 id="st4" >Sound</h5>
+			<img id ="code4" src="img/code.png" alt="code4" style="cursor: pointer;"> <h5 id="ps4" >Pseudocódigo</h5>
+			
+		</footer>
+
+			  </div>
+
+
+
+
+
+
+			  
+
+
+
+
+
+
+
+
+			  
+
+
+
+
+
+
+
+
+
+
+
+
+
+			  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+			  <div class="form-step">
+				
+				<div class="btns-group">
+				  <a href="#" class="btn btn-prev">Anterior</a>
+				  <input type="submit" value="Submit" class="btn" />
+				</div>
+
+				<nav id="menu">
+					<ul>
+						<!-- <li><a href="index.html">Home</a></li>
+						<li><a href="servicos.html"> Serviços </a></li>
+						<li><a href="sobrenos.html">Sobre nos</a></li>
+						<li><a href="galeria.html">Galeria</a></li>
+						<li><a href="contactos.html">Contactos</a></li>
+					-->
+					</ul>	
+				</nav>
+					   <article id="ex1">
+
+
+						<h1>Exercícios sobre Variáveis e Pseudocódigo</h1>
+
+						<h2>Exercícios de múltipla escolha</h2>
+						<!-- Perguntas de múltipla escolha -->
+						<form id="quizForm">
+							<div class="question">
+								<h3>1. Qual é a função da criação de variáveis em programação?</h3>
+								<label><input type="radio" name="q1" value="Armazenar dados na memória">Armazenar dados na memória</label>
+								<label><input type="radio" name="q1" value="Executar operações matemáticas">Executar operações matemáticas</label>
+								<label><input type="radio" name="q1" value="Controlar o fluxo do programa">Controlar o fluxo do programa</label>
+								<label><input type="radio" name="q1" value="Exibir resultados na tela">Exibir resultados na tela</label>
+							</div>
+					
+							<div class="question">
+								<h3>2. O que significa "atribuir um valor a uma variável" em programação?</h3>
+								<label><input type="radio" name="q2" value="Alterar o valor de uma variável existente">Alterar o valor de uma variável existente</label>
+								<label><input type="radio" name="q2" value="Criar uma variável com um valor específico">Criar uma variável com um valor específico</label>
+								<label><input type="radio" name="q2" value="Imprimir o valor de uma variável na tela">Imprimir o valor de uma variável na tela</label>
+								<label><input type="radio" name="q2" value="Excluir uma variável do programa">Excluir uma variável do programa</label>
+							</div>
+					
+							<div class="question">
+								<h3>3. Por que é útil usar mais de uma variável em um programa?</h3>
+								<label><input type="radio" name="q3" value="Para complicar o código">Para complicar o código</label>
+								<label><input type="radio" name="q3" value="Para economizar espaço na memória">Para economizar espaço na memória</label>
+								<label><input type="radio" name="q3" value="Para armazenar diferentes tipos de dados">Para armazenar diferentes tipos de dados</label>
+								<label><input type="radio" name="q3" value="Para realizar operações matemáticas mais complexas">Para realizar operações matemáticas mais complexas</label>
+							</div>
+					
+							<!-- Continue com outras perguntas de múltipla escolha conforme necessário... -->
+					
+							<h2>Exercícios de completar</h2>
+					
+							<div class="question">
+								<h3>4. Complete o pseudocódigo para atribuir o valor 10 à variável "idade" e depois imprimir seu valor:</h3>
+								<pre>
+inicio
+ idade ← <input type="text" class="inputq" name="q4" maxlength="5" size="5">  <!-- Complete esta linha -->
+ escrever("A idade é: ", idade)
+fim
+								</pre>
+							</div>
+					
+							<div class="question">
+								<h3>5. Complete o pseudocódigo para atualizar o valor da variável "saldo" adicionando 50 unidades e depois imprimir o novo saldo:</h3>
+								<pre>
+inicio
+	saldo ← 100
+	saldo ← <input class="inputq" type="text" name="q5" maxlength="5" size="5">  <!-- Complete esta linha -->
+	escrever("O novo saldo é: ", saldo)
+ fim
+								</pre>
+							</div>
+					
+							<!-- Continue com outros exercícios para completar conforme necessário... -->
+					
+							<button type="button" onclick="validateAndEvaluate()">Submeter Respostas</button>
+						</form>
+					
+						<h2>Resultado</h2>
+						<p id="result"></p>
+
+
+
+
+					   </article>
+
+					   <footer id="rodape">
+			<img id ="play6" src="img/play.png" alt="play6" style="cursor: pointer;"> <h5 id="pt6" >play</h5>
+			<img id ="replay6" src="img/replay.png" alt="replay6" style="cursor: pointer;"> <h5 id="rt6" >Replay</h5>
+			<img id ="text6" src="img/text.png" alt="text6" style="cursor: pointer;"> <h5 id="tt6" >Text</h5>
+			<img id ="sound6" src="img/sound.png" alt="sound6" style="cursor: pointer;"> <h5 id="st6" >Sound</h5>
+			<img id ="code6" src="img/code.png" alt="code6" style="cursor: pointer;"> <h5 id="ps6" >Pseudocódigo</h5>
+			
+		</footer>
+			  </div>
+
+			  
+
+
+		   
+
+
+		  <!--  -->
+
+		<aside id="lateral">
+						
+		</aside>
+
+		
+
+        
+		
+		
+
+
+
+	</div>
+
+
+
+</body>
+</html>
