@@ -203,7 +203,7 @@ function typeWriterEffect(element, text, speed, callback) {
 function startAnimation3() {
 
     let screenWidth = window.innerWidth; // Largura da tela
-    position3 = (screenWidth > 768) ? 0 : -20; // Pequena compensação em telas pequenas
+    position3 = (screenWidth > 768) ? 0 : -40; // Pequena compensação em telas pequenas
         
     manIdle3.style.backgroundImage = "url('/codeview/img/velho-sem-moeda.png')";
     manIdle3.style.transform = 'translateX(0%)';
