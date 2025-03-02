@@ -202,7 +202,7 @@ function typeWriterEffect(element, text, speed, callback) {
 // Função para iniciar a animação após a mensagem inicial
 function startAnimation3() {
     manIdle3.style.backgroundImage = "url('/codeview/img/velho-sem-moeda.png')";
-    manIdle3.style.transform = 'translateX(0px)';
+    manIdle3.style.transform = 'translateX(0%)';
 
     position3 = 0;
     let i3 = 0;
@@ -334,7 +334,7 @@ playButton3.addEventListener('click', () => {
 codeButton3.addEventListener('click', showPseudocode3);
 
 
-// ----------------------------- t--------------------------------------- \\
+// ----------------------------- Fim da 3a parte --------------------------------------- \\
 
 // ------------------------------- Cenario 4a Quarta Parte --------------------------------------------- \\
 let isAnimating4 = false; // Variável para evitar cliques repetidos
