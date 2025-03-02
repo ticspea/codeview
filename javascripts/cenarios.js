@@ -208,7 +208,7 @@ function startAnimation3() {
     manIdle3.style.backgroundImage = "url('/codeview/img/velho-sem-moeda.png')";
     manIdle3.style.transform = 'translateX(0%)';
 
-    position3 = 0;
+    //position3 = 0;
     let i3 = 0;
     paused3 = false;
 
