@@ -201,22 +201,26 @@ function typeWriterEffect(element, text, speed, callback) {
 
 // Função para iniciar a animação após a mensagem inicial
 function startAnimation3() {
-    let screenWidth = window.innerWidth;
-    
-    // Define a posição inicial e os pontos de parada proporcionalmente
-    position3 = 0;
-    let moedaStop = (screenWidth > 768) ? 10 : -20;  // Onde o personagem para na moeda
-    let cofreStop = (screenWidth > 768) ? -50 : -35;  // Onde o personagem para no cofre
 
+    let screenWidth = window.innerWidth; // Largura da tela
+    position3 = (screenWidth > 768) ? 0 : -20; // Pequena compensação em telas pequenas
+        
     manIdle3.style.backgroundImage = "url('/codeview/img/velho-sem-moeda.png')";
-    manIdle3.style.transform = `translateX(${position3}%)`;
+    manIdle3.style.transform = 'translateX(0%)';
 
+    //position3 = 0;
     let i3 = 0;
     paused3 = false;
 
     interval3 = setInterval(function () {
-        if (position3 <= moedaStop && !paused3) {
-            // Personagem chega na moeda e para
+        if (i3 >= totalSteps3) {
+            manIdle3.style.transform = `translateX(${position3}%)`;
+            clearInterval(interval3);
+            showFinalMessage3();
+            return;
+        }
+
+        if (i3 === pauseStep3 && !paused3) {
             paused3 = true;
             clearInterval(interval3);
             setTimeout(() => {
@@ -224,7 +228,7 @@ function startAnimation3() {
                 manIdle3.style.backgroundImage = "url('/codeview/img/Regulo10.png')";
                 manIdle3.style.height = "18vh";
                 paused3 = false;
-                continueAnimation3(i3, cofreStop);
+                continueAnimation3(i3);
             }, 1000);
         } else if (!paused3) {
             startMoving3();
@@ -235,10 +239,9 @@ function startAnimation3() {
 }
 
 // Função para continuar a animação
-function continueAnimation3(currentStep3, cofreStop) {
+function continueAnimation3(currentStep3) {
     interval3 = setInterval(function () {
-        if (position3 <= cofreStop) {
-            // Quando chega ao cofre, exibe a mensagem final
+        if (currentStep3 >= totalSteps3) {
             manIdle3.style.transform = `translateX(${position3}%)`;
             clearInterval(interval3);
             showFinalMessage3();
@@ -247,20 +250,29 @@ function continueAnimation3(currentStep3, cofreStop) {
 
         startMoving3();
         currentStep3++;
-    }, 60);
+
+        if (currentStep3 == 54) {
+            manIdle3.style.backgroundImage = "url('/codeview/imagens/velho-sem-moeda.png')";
+            placa03.style.display = 'none';
+            placa003.style.display = 'block';
+
+            setTimeout(() => {
+                cofre3.style.backgroundImage = "url('/codeview/img/cofre10.png')";
+                setTimeout(() => {
+                    cofre3.style.backgroundImage = "url('/codeview/img/cofre-sem-velho.png')";
+                }, 1000);
+            }, 1000);
+        }
+    }, 54);
 }
 
 // Função para continuar o movimento
 function startMoving3() {
-    let screenWidth = window.innerWidth;
-    
-    // Ajusta velocidade proporcional ao tamanho da tela
-    let moveAmount = (screenWidth > 768) ? 2 : 1; 
-
-    position3 += direction3 * moveAmount;
+    let screenWidth = window.innerWidth; // Captura a largura da tela
+    let moveAmount = (screenWidth > 768) ? 10 : -1; // Ajusta velocidade conforme tela
+    position3 += direction3 * speed3;
     manIdle3.style.transform = `translateX(${position3}%)`;
 }
-
 
 // Exibe a mensagem inicial e inicia a animação após a exibição
 function showInitialMessage3() {
