@@ -158,8 +158,7 @@ window.location.reload();
 
 
 
-
-const manIdle3 = document.getElementById("manIdle3");
+document.getElementById("manIdle3");
 const cofre3 = document.getElementById("cofre3");
 const moeda3 = document.getElementById("moeda3");
 const playButton3 = document.getElementById("play3");
@@ -201,20 +200,16 @@ function typeWriterEffect(element, text, speed, callback) {
 
 // Função para iniciar a animação após a mensagem inicial
 function startAnimation3() {
-
-    let screenWidth = window.innerWidth; // Largura da tela
-    position3 = (screenWidth > 768) ? 0 : -20; // Pequena compensação em telas pequenas
-        
     manIdle3.style.backgroundImage = "url('/codeview/img/velho-sem-moeda.png')";
     manIdle3.style.transform = 'translateX(0%)';
 
-    //position3 = 0;
+    position3 = 0;
     let i3 = 0;
     paused3 = false;
 
     interval3 = setInterval(function () {
         if (i3 >= totalSteps3) {
-            manIdle3.style.transform = `translateX(${position3}%)`;
+            manIdle3.style.transform = translateX(${position3}%);
             clearInterval(interval3);
             showFinalMessage3();
             return;
@@ -242,7 +237,7 @@ function startAnimation3() {
 function continueAnimation3(currentStep3) {
     interval3 = setInterval(function () {
         if (currentStep3 >= totalSteps3) {
-            manIdle3.style.transform = `translateX(${position3}%)`;
+            manIdle3.style.transform = translateX(${position3}%);
             clearInterval(interval3);
             showFinalMessage3();
             return;
@@ -268,10 +263,8 @@ function continueAnimation3(currentStep3) {
 
 // Função para continuar o movimento
 function startMoving3() {
-    let screenWidth = window.innerWidth; // Captura a largura da tela
-    let moveAmount = (screenWidth > 768) ? 10 : 1; // Ajusta velocidade conforme tela
     position3 += direction3 * speed3;
-    manIdle3.style.transform = `translateX(${position3}%)`;
+    manIdle3.style.transform = translateX(${position3}%);
 }
 
 // Exibe a mensagem inicial e inicia a animação após a exibição
@@ -323,11 +316,11 @@ function showPseudocode3() {
     if (isAnimating3) return; // Impede exibição enquanto animação ocorre
 
     message3.style.display = "block"; // Garante que a mensagem aparece
-    message3.innerHTML = `<pre>
+    message3.innerHTML = <pre>
 Inicio
     <b class="formatacaoc">poupanca</b> = 10
 Fim
-</pre>`;
+</pre>;
 }
 
 // Adiciona um evento de clique ao botão "Play"
