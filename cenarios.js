@@ -151,15 +151,185 @@ document.getElementById("replay1").addEventListener("click", function() {
 window.location.reload();
 });
 
-/*----------------------
+----------------------
 
-/* -----------------------------
-*/
+// ----------------------------- 3a Parte -----------------------------------------------------------------------
+
+const manIdle3 = document.getElementById("manIdle3");
+const cofre3 = document.getElementById("cofre3");
+const moeda3 = document.getElementById("moeda3");
+const playButton3 = document.getElementById("play3");
+const codeButton3 = document.getElementById("code3");
+const message3 = document.getElementById("message3");
+const placa003 = document.getElementById("placa003");
+const placa03 = document.getElementById("placa03");
+
+let position3 = 0;
+let direction3 = -1;
+let speed3 = 10;
+let interval3;
+let paused3 = false;
+const totalSteps3 = 54;
+const pauseStep3 = 30;
+let isAnimating3 = false; // Variável para evitar cliques repetidos
+
+// Função para exibir mensagens interativas com efeito de máquina de escrever
+function typeWriterEffect(element, text, speed, callback) {
+    element.innerHTML = "";
+    element.style.display = "block"; // Exibe a mensagem
+    let i = 0;
+
+    function type() {
+        if (i < text.length) {
+            element.innerHTML += text.charAt(i);
+            i++;
+            setTimeout(type, speed);
+        } else if (callback) {
+            setTimeout(() => {
+                element.style.display = "none"; // Esconde a primeira mensagem
+                callback();
+            }, 1000);
+        }
+    }
+
+    type();
+}
+
+// Função para iniciar a animação após a mensagem inicial
+function startAnimation3() {
+    manIdle3.style.backgroundImage = "url('/menu/img/velho-sem-moeda.png')";
+    manIdle3.style.transform = 'translateX(0px)';
+
+    position3 = 0;
+    let i3 = 0;
+    paused3 = false;
+
+    interval3 = setInterval(function () {
+        if (i3 >= totalSteps3) {
+            manIdle3.style.transform = `translateX(${position3}px)`;
+            clearInterval(interval3);
+            showFinalMessage3();
+            return;
+        }
+
+        if (i3 === pauseStep3 && !paused3) {
+            paused3 = true;
+            clearInterval(interval3);
+            setTimeout(() => {
+                moeda3.classList.add('hidden');
+                manIdle3.style.backgroundImage = "url('/menu2/img/Regulo10.png')";
+                manIdle3.style.height = "18vh";
+                paused3 = false;
+                continueAnimation3(i3);
+            }, 1000);
+        } else if (!paused3) {
+            startMoving3();
+        }
+
+        i3++;
+    }, 60);
+}
+
+// Função para continuar a animação
+function continueAnimation3(currentStep3) {
+    interval3 = setInterval(function () {
+        if (currentStep3 >= totalSteps3) {
+            manIdle3.style.transform = `translateX(${position3}px)`;
+            clearInterval(interval3);
+            showFinalMessage3();
+            return;
+        }
+
+        startMoving3();
+        currentStep3++;
+
+        if (currentStep3 == 54) {
+            manIdle3.style.backgroundImage = "url('/ensino/imagens/velho-sem-moeda.png')";
+            placa03.style.display = 'none';
+            placa003.style.display = 'block';
+
+            setTimeout(() => {
+                cofre3.style.backgroundImage = "url('/menu2/img/cofre10.png')";
+                setTimeout(() => {
+                    cofre3.style.backgroundImage = "url('/menu2/img/cofre-sem-velho.png')";
+                }, 1000);
+            }, 1000);
+        }
+    }, 54);
+}
+
+// Função para continuar o movimento
+function startMoving3() {
+    position3 += direction3 * speed3;
+    manIdle3.style.transform = `translateX(${position3}px)`;
+}
+
+// Exibe a mensagem inicial e inicia a animação após a exibição
+function showInitialMessage3() {
+    if (isAnimating3) return; // Evita cliques repetidos durante a animação
+    isAnimating3 = true;
+
+    playButton3.disabled = true;
+    codeButton3.disabled = true;
+
+    typeWriterEffect(
+        message3,
+        "O Régulo necessita de fazer a primeira coleta e armazená-la no cofre, atribuindo-lhe assim um valor inicial. Ele vai até à primeira casa e recolhe a primeira contribuição de 10 meticais e coloca no cofre, iniciando assim a variável poupança com esse valor.",
+        50,
+        startAnimation3
+    );
+}
+
+// Exibe a mensagem final após a animação
+function showFinalMessage3() {
+    typeWriterEffect(
+        message3,
+        'Na programação, atribuir um valor a uma variável significa inicializar essa variável com um valor específico. No contexto desse cenário, a variável "poupança" é iniciada com o valor 10 correspondente à contribuição colocada no cofre. A atribuição é feita usando o operador de igualdade = à variavel pretendida seguido do valor a ser atribuido. Clique no botão do código abaixo para exibir a lógica na forma de pseudocódigo.                                   ',
+        50,
+        () => {
+            playButton3.disabled = false;
+            codeButton3.disabled = false;
+            isAnimating3 = false; // Permite clicar novamente no botão Play
+            highlightCodeButton();
+        }
+    );
+}
+
+// Função para destacar o botão code3 com efeito de pisca-pisca
+function highlightCodeButton() {
+    let blinkCount = 0;
+    const interval = setInterval(() => {
+        codeButton3.style.visibility = codeButton3.style.visibility === 'hidden' ? 'visible' : 'hidden';
+        blinkCount++;
+        if (blinkCount >= 12) { // 12 trocas = 6 segundos
+            clearInterval(interval);
+            codeButton3.style.visibility = 'visible'; // Garante que fica visível no final
+        }
+    }, 500);
+}
+
+// Função para exibir o pseudocódigo no message3
+function showPseudocode3() {
+    if (isAnimating3) return; // Impede exibição enquanto animação ocorre
+
+    message3.style.display = "block"; // Garante que a mensagem aparece
+    message3.innerHTML = `<pre>
+Inicio
+    <b class="formatacaoc">poupanca</b> = 10
+Fim
+</pre>`;
+}
+
+// Adiciona um evento de clique ao botão "Play"
+playButton3.addEventListener('click', () => {
+    if (isAnimating3) return; // Impede clique repetido
+    message3.innerHTML = ""; // Reinicia a mensagem para evitar sobreposição
+    showInitialMessage3();
+});
+
+codeButton3.addEventListener('click', showPseudocode3);
 
 
-/*
-
-*/
 // ----------------------------- Fim da 3a parte --------------------------------------- \\
 
 // ------------------------------- Cenario 4a Quarta Parte --------------------------------------------- \\
