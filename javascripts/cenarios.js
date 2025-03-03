@@ -158,7 +158,7 @@ window.location.reload();
 
 
 
-document.getElementById("manIdle3");
+const manIdle3 = document.getElementById("manIdle3");
 const cofre3 = document.getElementById("cofre3");
 const moeda3 = document.getElementById("moeda3");
 const playButton3 = document.getElementById("play3");
