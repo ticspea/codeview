@@ -205,7 +205,7 @@ function startAnimation3() {
     
     // Define a posição inicial e os pontos de parada proporcionalmente
     position3 = 0;
-    let moedaStop = (screenWidth > 768) ? -30 : -20;  // Onde o personagem para na moeda
+    let moedaStop = (screenWidth > 768) ? 10 : -20;  // Onde o personagem para na moeda
     let cofreStop = (screenWidth > 768) ? -50 : -35;  // Onde o personagem para no cofre
 
     manIdle3.style.backgroundImage = "url('/codeview/img/velho-sem-moeda.png')";
