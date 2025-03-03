@@ -201,14 +201,14 @@ function typeWriterEffect(element, text, speed, callback) {
 
 // Função para iniciar a animação após a mensagem inicial
 function startAnimation3() {
+    let screenWidth = window.innerWidth;
+    position3 = 0; // Sempre começa no mesmo ponto
 
-    let screenWidth = window.innerWidth; // Largura da tela
-    position3 = (screenWidth > 768) ? 0 : -20; // Pequena compensação em telas pequenas
-        
+    let moedaStop = (screenWidth > 768) ? -30 : -20; // Ajuste o ponto de parada
+
     manIdle3.style.backgroundImage = "url('/codeview/img/velho-sem-moeda.png')";
-    manIdle3.style.transform = 'translateX(0%)';
+    manIdle3.style.transform = `translateX(${position3}%)`;
 
-    //position3 = 0;
     let i3 = 0;
     paused3 = false;
 
@@ -220,7 +220,7 @@ function startAnimation3() {
             return;
         }
 
-        if (i3 === pauseStep3 && !paused3) {
+        if (position3 <= moedaStop && !paused3) { // Garante que ele pare corretamente
             paused3 = true;
             clearInterval(interval3);
             setTimeout(() => {
@@ -237,6 +237,7 @@ function startAnimation3() {
         i3++;
     }, 60);
 }
+
 
 // Função para continuar a animação
 function continueAnimation3(currentStep3) {
@@ -268,9 +269,18 @@ function continueAnimation3(currentStep3) {
 
 // Função para continuar o movimento
 function startMoving3() {
-    let screenWidth = window.innerWidth; // Captura a largura da tela
-    let moveAmount = (screenWidth > 768) ? 10 : -1; // Ajusta velocidade conforme tela
-    position3 += direction3 * speed3;
+    let screenWidth = window.innerWidth;
+    let moveAmount = (screenWidth > 768) ? 3 : 1.5; // Menos velocidade em telas pequenas
+
+    position3 += direction3 * moveAmount;
+
+    // Define um limite para que ele não ultrapasse a moeda
+    let maxPosition = (screenWidth > 768) ? -40 : -30; // Ajuste conforme necessário
+
+    if (position3 < maxPosition) {
+        position3 = maxPosition; // Garante que ele não passe do ponto desejado
+    }
+
     manIdle3.style.transform = `translateX(${position3}%)`;
 }
 
