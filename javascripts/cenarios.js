@@ -269,7 +269,7 @@ function continueAnimation3(currentStep3) {
 // Função para continuar o movimento
 function startMoving3() {
     let screenWidth = window.innerWidth; // Captura a largura da tela
-    let moveAmount = (screenWidth > 768) ? 10 : 1; // Ajusta velocidade conforme tela
+    let moveAmount = (screenWidth > 768) ? 10 : -1; // Ajusta velocidade conforme tela
     position3 += direction3 * speed3;
     manIdle3.style.transform = `translateX(${position3}%)`;
 }
