@@ -202,7 +202,7 @@ function typeWriterEffect(element, text, speed, callback) {
 // Função para iniciar a animação após a mensagem inicial
 function startAnimation3() {
     manIdle3.style.backgroundImage = "url('/codeview/img/velho-sem-moeda.png')";
-    manIdle3.style.transform = 'translateX(0px)';
+    manIdle3.style.transform = 'translateX(0%)';
 
     position3 = 0;
     let i3 = 0;
@@ -210,7 +210,7 @@ function startAnimation3() {
 
     interval3 = setInterval(function () {
         if (i3 >= totalSteps3) {
-            manIdle3.style.transform = `translateX(${position3}px)`;
+            manIdle3.style.transform = `translateX(${position3}%)`;
             clearInterval(interval3);
             showFinalMessage3();
             return;
@@ -238,7 +238,7 @@ function startAnimation3() {
 function continueAnimation3(currentStep3) {
     interval3 = setInterval(function () {
         if (currentStep3 >= totalSteps3) {
-            manIdle3.style.transform = `translateX(${position3}px)`;
+            manIdle3.style.transform = `translateX(${position3}%)`;
             clearInterval(interval3);
             showFinalMessage3();
             return;
@@ -265,7 +265,7 @@ function continueAnimation3(currentStep3) {
 // Função para continuar o movimento
 function startMoving3() {
     position3 += direction3 * speed3;
-    manIdle3.style.transform = `translateX(${position3}px)`;
+    manIdle3.style.transform = `translateX(${position3}%)`;
 }
 
 // Exibe a mensagem inicial e inicia a animação após a exibição
