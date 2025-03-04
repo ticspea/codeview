@@ -19,7 +19,7 @@ const buttonsToDisable2 = [
 ];
 
 let position2 = 0;
-let speed2 = 10;
+let speed2 = (screenWidth > 768) ? 10 : 3;
 let i2 = 0;
 let interval2;
 let isAnimating2 = false;
@@ -85,7 +85,7 @@ function startAnimation2() {
     // Resetar posição das imagens
     manIdle2.classList.add('hidden');
     manWalking2.classList.remove('hidden');
-    manWalking2.style.right = "0px";
+    manWalking2.style.right = "0%";
 
     machineSound2.play();
     stepSound2.play();
@@ -116,7 +116,7 @@ function startAnimation2() {
         }
 
         position2 -= speed2;
-        manWalking2.style.transform = `translateX(${position2}px)`;
+        manWalking2.style.transform = `translateX(${position2}%)`;
         i2++;
 
     }, 50);
