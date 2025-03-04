@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" name="viewport" content="width=device-width,initial-scale=1"/>
+	<title>Code View </title>
+	<link rel="stylesheet" type="text/css" href="css/estilo.css">
+
+
+	<link href="parsons.css" rel="stylesheet" />
+	<link href="lib/prettify.css" rel="stylesheet" />
+	<script src="lib/prettify.js"></script>
+
+	
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<script src="javascripts/script.js" defer></script>
+	<script src="javascripts/cenarios_parson.js" defer></script>
+
+
+
+	<script src="lib/jquery.min.js"></script>
+        <script src="lib/jquery-ui.min.js"></script>
+        <script src="lib/jquery.ui.touch-punch.min.js"></script>
+        <script src="lib/underscore-min.js"></script>
+        <script src="lib/lis.js"></script>
+        <script src="parsons.js"></script>
+        <script src="lib/skulpt.js"></script>
+        <script src="lib/skulpt-stdlib.js"></script>
+        <script src="lib/prettify.js"></script>
+
+
+
+	<style>
+		.container {
+			position: relative;
+			background-size: 100% 100%;
+	/*display: block;
+	
+	/*background-color: white;*/
+	width: 70%;
+	height: 300px;
+	
+	/*width: 400px;*/
+	float: 	left;
+	padding: 10px;
+			overflow: hidden; /* Garante que a imagem não apareça fora da área visível */
+		}
+	
+		.image {
+			position: absolute;
+			width: 5vw; /* Ajuste o tamanho conforme necessário */
+			height: 20vh; /* Ajuste a altura conforme necessário */
+			transition: transform 0.5s linear; /* Transição suave para cada passo */
+			background-size: cover; /* Garante que a imagem cubra toda a área */
+			right: 20%;
+			bottom: 22%;
+		}
+		.image2 {
+			position: absolute;
+			width: 130px; /* Ajuste o tamanho conforme necessário */
+			height: 167px; /* Ajuste a altura conforme necessário */
+			transition: transform 0.5s linear; /* Transição suave para cada passo */
+			background-size: cover; /* Garante que a imagem cubra toda a área */
+			right: 20%;
+			bottom: 20%;
+		}
+
+
+
+		
+		.cofre {
+			position: absolute;
+			width: 98px; /* Ajuste o tamanho conforme necessário */
+			height: 83px; /* Ajuste a altura conforme necessário */
+			background-size: cover; /* Garante que a imagem cubra toda a área */
+			left: 590px;
+			bottom: 125px;
+			z-index: 1;
+		}
+		.moeda {
+			position: absolute;
+			width: 26px; /* Ajuste o tamanho conforme necessário */
+			height: 26px; /* Ajuste a altura conforme necessário */
+			background-size: cover; /* Garante que a imagem cubra toda a área */
+			left: 695px;
+			bottom: 160px;
+		}
+	
+		.hidden {
+			display: none; /* Oculta o elemento quando necessário */
+		}
+	
+		.moving {
+			transition: transform 0.5s linear; /* Transição suave para a movimentação */
+		}
+	
+		#manWalking {
+			transform: translateX(0px); /* Posição inicial */
+			
+		}
+/*menu  --------------------------------*/
+
+
+		
+	</style>
+</head>
+<body>
+	
+
+	<div class="principal">
+		<section id="cabecalho7">
+
+			<!--<h2 id="slogan">Construindo a casa de seus sonhos </h2> -->
+				
+			</section>
+
+<!--<p id="ti">Episódios</p><!-->
+
+		  	<!-- Progress bar -->
+			  
+
+			  <div class="progressbar">
+				<div class="progress" id="progress"></div>
+				
+				<div
+				  class="progress-step progress-step-active"
+				  data-title="Atribuição"
+				></div>
+				<div class="progress-step" data-title="Idade"></div>
+
+				<div class="progress-step" data-title="Aribuição"> 	</div>
+				
+
+				<div class="progress-step" data-title="Atualização"></div>
+				<div class="progress-step" data-title="Temperatura"></div>
+
+				
+			  </div>
+
+			   <!-- Steps -->
+			   <div id="parson1" class="form-step form-step-active">
+					<div class="status2">
+						Pontuação:<div id="p03" class="pontos">10</div>
+						Tentativas:<div id="t03" class="pontos">4</div>
+						Pontuação total:<div id="ttl" class="pontos">11</div>
+					</div>
+					<div class="btns-group">
+						<a href="exercicio_correspondencia.html" class="btn btn-prev">Anterior</a>
+				  		<a href="#" class="btn btn-next">Próximo</a>
+					</div>
+
+					<nav id="menu">
+						<ul id="descricao">
+							<p>Considerando o código ao lado, que apresenta  a visualização e atualização de valor. <p>  Organize as instruções de forma correta, arrastando-as para a zona livre								.  
+						</ul>	
+					</nav>
+					
+					<article id="artigo">
+						<div id="sortableTrash001" class="sortable-code"></div>
+						<div id="sortable001" class="sortable-code">
+						</div>
+						<div style="clear:both;"></div>
+						<p> </p>
+							<div id="commit1">
+							.
+					    	</div>
+								   						
+					
+					</article>	
+					
+					<footer id="rodape">
+						<a href="#" id="newInstanceLink001" class="botao">Recomeçar</a>
+						<a href="#" id="feedbackLink001" class="botao">Verificar as respostas</a> 
+						<a id="duracao4"></a>
+					</footer>
+
+			  </div>
+
+			  
+
+			  <div class="form-step">
+				<div class="status2">
+					Pontuação:<div id="p03" class="pontos">10</div>
+					Tentativas:<div id="t03" class="pontos">4</div>
+						Pontuação total:<div id="ttl" class="pontos">11</div>
+				</div>
+				
+				<div class="btns-group">
+				  <a href="#" class="btn btn-prev">Anterior</a>
+				  <a href="#" class="btn btn-next">Próximo</a>
+				</div>
+
+				<nav id="menu">
+					<ul id="descricao">
+						<p>No código ao lado é apresentado um exemplo de instruções para calcular e exibir a idade da Vila.  <p>Organize as instruções de forma correta, arrastando-as para a zona livre. </p>
+					</ul>	
+				</nav>
+				
+				<article id="artigo">
+					<div id="sortableTrash01" class="sortable-code"></div>
+					<div id="sortable01" class="sortable-code">
+					</div>
+					<div style="clear:both;"></div>
+					<p>
+						
+					</p>
+
+										   
+				
+				</article>	
+				
+				<footer id="rodape">
+					</a> <a href="#" id="newInstanceLink01" class="botao">Recomeçar</a>
+					<a href="#" id="feedbackLink01" class="botao">Verificar resposta</a> 
+					<a id="duracao4"></a>
+				</footer>
+
+			  </div>
+
+			  
+
+
+
+
+
+			  <div class="form-step">
+				<div class="status2">
+					Pontuação:<div id="p03" class="pontos">10</div>
+					Tentativas:<div id="t03" class="pontos">4</div>
+						Pontuação total:<div id="ttl" class="pontos">11</div>
+				</div>
+
+				<div class="btns-group">
+				  <a href="#" class="btn btn-prev">Anterior</a>
+				  <a href="#" class="btn btn-next">Próximo</a>
+				</div>
+
+				<nav id="menu">
+					<ul id="descricao">
+						<p> No programa ao lado é apresentado um exemplo de instruções necessárias para  atribuição de um valor de 10 e a respectiva visualização. <p> Organize as instruções de forma correta, arrastando-as para a zona livre. 
+												
+					</ul>	
+				</nav>
+					   <article id="artigo">
+						<div id="sortableTrash2" class="sortable-code"></div>
+						<div id="sortable2" class="sortable-code">
+						</div>
+						<div style="clear:both;"></div>
+						
+
+				
+					   </article>
+					   <footer id="rodape">
+						<p>
+							<a href="#" id="newInstanceLink2" class="botao">Recomeçar</a>
+							<a href="#" id="feedbackLink2" class="botao">Verificar resposta</a> 
+							<a id="duracao4"></a>
+						</p>
+
+						
+			
+		</footer>
+
+			  </div>
+
+
+
+
+
+
+			  <div class="form-step">
+				<div class="status2">
+							Pontuação:<div id="p03" class="pontos">10</div>
+							Tentativas:<div id="t03" class="pontos">4</div>
+								Pontuação total:<div id="ttl" class="pontos">11</div>
+						</div>
+
+				<div class="btns-group">
+				  <a href="#" class="btn btn-prev">Anterior</a>
+				  <a href="#" class="btn btn-next">Próximo</a>
+				</div>
+
+				<nav id="menu">
+					<ul id="descricao">
+						<p>Considerando o código ao lado, que apresenta  a atualização e visualização do valor.<p>Organize as instruções de forma correta, arrastando-as para a zona livre.</p>
+												
+					</ul>	
+				</nav>
+					   <article id="artigo">
+						<div id="sortableTrash3" class="sortable-code"></div>
+						<div id="sortable3" class="sortable-code">
+						</div>
+						<div style="clear:both;"></div>
+		
+
+				
+					   </article>
+					   <footer id="rodape">
+						<p>
+							<a href="#" id="newInstanceLink3" class="botao">Recomeçar</a>
+							<a href="#" id="feedbackLink3" class="botao">Verificar resposta</a> 
+							<a id="duracao4"></a>
+						</p>
+				
+			
+		</footer>
+
+			  </div>
+
+
+
+
+
+
+			  <div class="form-step">
+				<div class="status2">
+							Pontuação:<div id="p03" class="pontos">10</div>
+							Tentativas:<div id="t03" class="pontos">4</div>
+								Pontuação total:<div id="ttl" class="pontos">11</div>
+						</div>
+
+				<div id="parson5" class="btns-group">
+				  <a href="#" class="btn btn-prev">Anterior</a>
+				  <a href="exercicios_multichoice.html" class="btn btn-next">Próximo</a>
+				</div>
+
+				<nav id="menu">
+					<ul id="descricao">
+						<p> No programa ao lado é apresentado um exemplo de instruções de conversão da temperatura da vila, de graus fahrenheit para centígrados. <p> Organize-o código de modo a ter a sequencia correcta. 
+				 </p>
+												
+					</ul>	
+				</nav>
+					   <article id="artigo">
+						<div id="sortableTrash05" class="sortable-code"></div>
+						<div id="sortable05" class="sortable-code">
+						</div>
+						<div style="clear:both;"></div>
+						<p>
+							
+						</p>
+
+
+				
+					   </article>
+					   <footer id="rodape">
+							<a href="#" id="newInstanceLink05" class="botao">Recomeçar</a>
+							<a href="#" id="feedbackLink05" class="botao">Verificar resposta</a> 
+							<a id="duracao4"></a>
+			
+						</footer>
+
+			  </div>
+		  
+		<aside id="lateral">
+						
+		</aside>
+
+		
+
+        
+		
+		
+
+
+
+	</div>
+
+	<script>
+		function toggleMenu(menuId) {
+		var menu = document.getElementById(menuId);
+		if (menu.style.display === "block") {
+		menu.style.display = "none";
+		} else {
+		menu.style.display = "block";
+		}
+		}
+		</script>
+
+</body>
+</html>
