@@ -167,10 +167,10 @@ const codeButton3 = document.getElementById("code3");
 const message3 = document.getElementById("message3");
 const placa003 = document.getElementById("placa003");
 const placa03 = document.getElementById("placa03");
-
+let screenWidth = window.innerWidth;
 let position3 = 0;
 let direction3 = -1;
-let speed3 = 10;
+let speed3 = (screenWidth > 768) ? 10 : 3;
 let interval3;
 let paused3 = false;
 const totalSteps3 = 54;
@@ -248,7 +248,7 @@ function continueAnimation3(currentStep3) {
         currentStep3++;
 
         if (currentStep3 == 54) {
-            manIdle3.style.backgroundImage = "url('/codeview/imagens/velho-sem-moeda.png')";
+            manIdle3.style.backgroundImage = "url('/codeview/img/velho-sem-moeda.png')";
             placa03.style.display = 'none';
             placa003.style.display = 'block';
 
@@ -266,6 +266,7 @@ function continueAnimation3(currentStep3) {
 function startMoving3() {
     position3 += direction3 * speed3;
     manIdle3.style.transform = `translateX(${position3}%)`;
+    console.log(position3);
 }
 
 // Exibe a mensagem inicial e inicia a animação após a exibição
@@ -332,8 +333,6 @@ playButton3.addEventListener('click', () => {
 });
 
 codeButton3.addEventListener('click', showPseudocode3);
-
-
 // ----------------------------- Fim da 3a parte --------------------------------------- \\
 
 // ------------------------------- Cenario 4a Quarta Parte --------------------------------------------- \\
