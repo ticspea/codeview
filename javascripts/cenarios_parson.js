@@ -1,7 +1,7 @@
 // -------------------------------------------- Exercicio 1 ----------------------------------------
 //---------------------- Exercicios 1a Parte ---------------------------------
 
-var initial001 = atob("aW5pY2lvDQogICAgcG91cGFuY2EgPSAyMA0KICAgIGVzY3JldmEocG91cGFuY2EpDQpmaW0=");
+var initial001 = atob("aW5pY2lvDQpwb3VwYW5jYSA9IDIwDQplc2NyZXZhKHBvdXBhbmNhKQ0KZmlt");
 let maxAttempts001 = 4; // Número máximo de tentativas
 let points001 = 0; // Pontuação inicial
 let attempts001 = 0; // Contador de tentativas
@@ -104,7 +104,7 @@ $(document).ready(function(){
 // // Exercicios 2
 //---------------------- Exercicios 2a Parte ---------------------------------
 
-var initial01 = atob("SW5pY2lvDQogdmFyIGFubw0KIGFubyA9IDIwMjUgLSAxOTMwDQogZXNjcmV2YShhbm8pDQpmaW0=");
+var initial01 = atob("SW5pY2lvDQp2YXIgYW5vDQphbm8gPSAyMDI1IC0gMTkzMA0KZXNjcmV2YShhbm8pDQpmaW0=");
 let maxAttempts01 = 4; // Número máximo de tentativas
 let points01 = 0; // Pontuação inicial
 let attempts01 = 0; // Contador de tentativas
